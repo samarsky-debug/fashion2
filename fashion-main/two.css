@@ -1,0 +1,81 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивность */
+  gap: 40px; /* Больше пространства между товарами */
+  padding: 20px;
+}
+
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  border: 1px solid #eee; /* Тонкая рамка вместо толстых линий */
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Эффект приподнимания */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 400px; /* Фиксированная высота для всех фото */
+  object-fit: cover; /* Заполнит область, обрезав лишнее */
+  filter: grayscale(20%); /* Можно добавить легкий фильтр для единства стиля */
+  transition: 0.5s;
+}
+
+.product-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05); /* Зум при наведении */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9; /* Мягкий белый вместо чистого белого */
+  color: #1a1a1a;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 4px; /* Разрядка букв добавляет премиальности */
+  font-weight: 700;
+  text-align: center;
+}
+
+.product-card {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.product-card:hover .overlay {
+  opacity: 1;
+}
+
+.buy-btn {
+  padding: 10px 20px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+body {
+  /* Очень тонкая, едва заметная сетка */
+  background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+

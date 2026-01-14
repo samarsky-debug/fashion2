@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пуховик - Fashion Future</title>
+    <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column; 
+}
+
+
+main, .content-wrapper {
+  flex: 1; 
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0; 
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(206, 206, 206) 50%, rgba(0, 0, 0, 1) 100%);
+  color: rgb(0, 0, 0);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(206, 206, 206) 50%, rgba(0, 0, 0, 1) 100%);
+  border-bottom: 1px solid #000;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+.puffer{
+ padding-left: 40px;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
+  background: #000;
+  color: #fff;
+  margin-top: auto; 
+}
+
+.product-card-container {
+    display: flex;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    border: 1px solid #000;
+    margin: 20px auto; 
+    max-width: 1200px; 
+    flex-wrap: wrap;
+}
+
+.images-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-img-wrapper img {
+    width: 100%;
+    border: 1px solid #000;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.thumbnails img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #000;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.description-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.price {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-top: 2px solid #000;
+    padding-top: 10px;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid #000;
+}
+
+@media (max-width: 768px) {
+    .product-card-container {
+        flex-direction: column;
+        margin: 10px;
+    }
+}
+
+
+#main-img {
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.thumbnails img.active {
+    border: 2px solid #fff; 
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.main-footer {
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 60px 0 40px 0;
+  font-family: 'Inter', sans-serif; 
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  padding: 0 20px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 30px;
+}
+
+.footer-col h3 {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+
+
+.social-icons {
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 100px;
+  height: 100%;
+  filter: invert(1);
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+.email {
+  margin-top: 15px !important;
+  color: #fff !important;
+  opacity: 0.8;
+}
+.footer-logo {
+  width: 200px;
+  filter: invert(1);
+  margin-bottom: 20px;
+}
+    </style>
+</head>
+<body>
+
+<header>
+<nav><a href="index.html"><h1>Fashion Future Collection</h1></a></nav>
+    <div class="puffer"><h1>Puffer Jacket</h1></div>
+</header>
+
+<main>
+    <section class="category">
+        
+        <div class="product-card-container">
+          
+            <div class="images-section">
+    <div class="main-img-wrapper">
+        <img src="img/puffer.jpg" alt="Пуховик основной вид" id="main-img" />
+    </div>
+    <div class="thumbnails">
+        <img src="img/puffer.jpg" alt="Вид 1" class="thumb active" />
+        <img src="img/puffer2.jpg" alt="Вид 2" class="thumb" />
+        <img src="img/puffer3.jpg" alt="Вид 3" class="thumb" />
+    </div>
+</div>
+
+    <div class="description-section">
+        <div class="description-text">
+            <p>Этот мужской пуховик — идеальный выбор для холодных дней. Выполнен из высококачественного прочного материала, который отлично защищает от ветра и влаги.</p>       
+                <h3>Особенности модели:</h3>
+                    <ul>
+                        <li>Практичный капюшон для дополнительной защиты</li>
+                        <li>Удобные карманы для хранения мелких предметов</li>
+                        <li>Надёжная молния и эластичные манжеты</li>
+                        <li>Универсальный черный цвет</li>
+                    </ul>
+                    <p>Стильный и функциональный — подчеркнет вашу индивидуальность и обеспечит тепло.</p>
+                </div>
+                <div class="price">10.000₽</div>
+                <a href="#" class="buy-button">Купить сейчас</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    
+    <div class="footer-col logo-info">
+      <img src="img/logo.png" alt="FFClogo" class="footer-logo">
+      <div class="legal-info">
+        <p>ИП Самарский Дмитрий Константинович</p>
+        <p>ИНН 77777777777</p>
+        <p>ОГРНИП 777777777777777</p>
+        <p>FashionFutureCollection@yandex.ru</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Полезное</h3>
+      <ul>
+        <li><a href="#">Доставка и оплата</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Контакты</h3>
+      <p>Адрес оффлайн магазина — г. Кемерово, ул. Ленина, 73</p>
+      <p class="phone">Для заказа онлайн и в другие города<br><strong>+7 777 777 77 77</strong></p>
+      
+      <div class="social-icons">
+        <a href="https://t.me/imfashiongeek"><img src="img/tg-logo.png" alt="TG"></a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+<script>
+    const mainImg = document.getElementById('main-img');
+    const thumbnails = document.querySelectorAll('.thumb');
+
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            // 1. Убираем класс active у всех миниатюр
+            thumbnails.forEach(t => t.classList.remove('active'));
+            
+            // 2. Добавляем active той, по которой кликнули
+            this.classList.add('active');
+
+            // 3. Эффект плавного перехода
+            mainImg.classList.add('fade-out');
+
+            setTimeout(() => {
+                // 4. Меняем адрес основной картинки на адрес миниатюры
+                mainImg.src = this.src;
+                mainImg.classList.remove('fade-out');
+            }, 300); // 300мс — время анимации затухания
+        });
+    });
+</script>
+
+
+</body>
+</html>
