@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Футболка Fashion Future</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet" />
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9f9f9;
+}
+header {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    background: linear-gradient(90deg, #616161 0%, #cecece 50%, #616161 100%);
+    color: #000;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-weight: 800;
+}
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #666;
+}
+.product-card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background: #fff;
+    padding: 40px 20px;
+    margin: 40px auto;
+    max-width: 1100px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.images-section {
+    position: relative;
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1em;
+    cursor: pointer;
+    background: rgba(109, 109, 109, 0.7);
+    padding: 15px;
+    border-radius: 20%;
+    z-index: 10;
+}
+.arrow-prev {
+    left: 10px;
+}
+.arrow-next {
+    right: 10px;
+}
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.6);
+    color: grey;
+}
+.main-img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.thumbnails {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+.thumbnails img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+.thumbnails img:hover {
+    border-color: #000;
+}
+.description-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.category {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 10px;
+}
+.product-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+}
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+.description-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 25px;
+}
+.section-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+}
+.size-picker {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+.size-badge {
+    min-width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+.size-badge:hover, .size-badge.active {
+    border-color: #000;
+    background: #000;
+    color: #fff;
+}
+.size-badge.active {
+  border-color: #000;
+  background-color: #000;
+  font-weight: bold;
+}
+.specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+    font-size: 13px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+.spec-item span {
+    color: #888;
+    display: block;
+    margin-bottom: 4px;
+}
+.buy-button {
+    display: block;
+    padding: 20px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+.buy-button:hover {
+    background: #333;
+}
+.delivery-info {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #666;
+}
+footer {
+    background: #000;
+    color: #fff;
+    padding: 60px 20px;
+}
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.footer-col {
+    flex: 1 1 200px;
+    margin-bottom: 20px;
+}
+.footer-col h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    font-size: 13px;
+    opacity: 0.7;
+    line-height: 2;
+}
+@media(max-width: 768px) {
+  .product-card-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .images-section {
+    order: 1;
+  }
+  .description-section {
+    order: 2;
+  }
+  .footer-container {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>FASHION FUTURE</h1>
+</header>
+<nav>
+  <a href="index.html">Catalog</a>
+  <a href="#">News</a>
+  <a href="#">Jackets</a>
+  <a href="#">Аccessories</a>
+  <a href="#">Sale</a>
+</nav>
+
+<main>
+  <div class="product-card-container">
+    <div class="images-section">
+      <div class="main-img-wrapper">
+        <img src="img/t-shirt.jpg" alt="Puffer Jacket" id="main-img" />
+      </div>
+      <div class="thumbnails">
+        <img src="img/t-shirt.jpg" alt="вид 1" />
+        <img src="img/t-shirt2.jpg" alt="вид 2" />
+        <img src="img/t-shirt3.jpg" alt="вид 3" />
+      </div>
+    </div>
+
+    <div class="description-section">
+      <span class="category">Summer Collection 2026</span>
+      <h2 class="product-title">T-Shirt "Black"</h2>
+      <p class="description-text">
+        Стильная и универсальная черная футболка — отличный выбор для любого гардероба. Выполнена из высококачественного мягкого материала, приятного к телу и долговечного. Классический крой и нейтральный цвет делают эту футболку идеальной для повседневного ношения.
+      </p>
+
+      <span class="section-label">Выберите размер</span>
+      <div class="size-picker">
+        <div class="size-badge">S</div>
+        <div class="size-badge active">M</div>
+        <div class="size-badge">L</div>
+        <div class="size-badge">XL</div>
+      </div>
+
+      <div class="specs">
+        <div class="spec-item">
+          <span>Материал</span>
+          <strong>Хлопок</strong>
+        </div>
+        <div class="spec-item">
+          <span>Артикул</span>
+          <strong>FF-0931</strong>
+        </div>
+      </div>
+
+      <div class="price">1 000 ₽</div>
+      <a href="#" class="buy-button">Добавить в корзину</a>
+      <div class="delivery-info">
+        <div class="info-item">📦 Бесплатная доставка от 5 000 ₽</div>
+        <div class="info-item">🔄 Возврат в течение 14 дней</div>
+        <div class="info-item">🛡️ Гарантия качества 1 год</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Полезное</h3>
+      <ul>
+        <li>Доставка и оплата</li>
+        <li>Политика конфиденциальности</li>
+        <li>Таблица размеров</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Контакты</h3>
+      <ul>
+        <li>г. Кемерово, ул. Ленина, 73</li>
+        <li>8 (800) 555-35-35</li>
+        <li>support@fashionfuture.ru</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Мы в сети</h3>
+      <div class="social-icons" style="font-size: 12px; opacity: 0.6;">
+        Instagram / Telegram / VK
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainImg = document.getElementById('main-img');
+    const thumbnails = document.querySelectorAll('.thumbnails img');
+
+    let currentIndex = 0;
+    const totalImages = thumbnails.length;
+
+    function updateMainImage() {
+      mainImg.src = thumbnails[currentIndex].src;
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    // Обработка кликов по миниатюрам
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        currentIndex = index;
+        updateMainImage();
+      });
+    });
+
+    updateMainImage();
+
+    // Работа с выбором размера
+    const sizeBadges = document.querySelectorAll('.size-badge');
+
+    sizeBadges.forEach(badge => {
+      badge.addEventListener('click', () => {
+        // Убираем активный класс у всех
+        sizeBadges.forEach(b => b.classList.remove('active'));
+        // Добавляем активный класс к выбранному
+        badge.classList.add('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
